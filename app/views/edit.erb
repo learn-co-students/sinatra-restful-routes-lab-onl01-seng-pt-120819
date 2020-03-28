@@ -1,12 +1,14 @@
-<%= @recipe.ingredients %>
+<%= @recipe.name %> <br> <br>
+<%= @recipe.ingredients %> <br> <br>
+
 
 <form action="/recipes/<%= @recipe.id %>" method="post" style="display:flex; flex-direction:column; width:25%;">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
     <label for="name">Recipe Name:</label>
-    <input style="margin:0.2rem;" type="text" name="name" id="name"> 
+    <input style="margin:0.2rem;" type="text" name="name" id="name" value="<%= @recipe.name %>"> 
     <label for="ingredients">Ingredients:</label>
-    <input style="margin:0.2rem;" type="text" name="ingredients" id="ingredients">
+    <input style="margin:0.2rem;" type="text" name="ingredients" id="ingredients" value="<%= @recipe.ingredients %>">
     <label for="time">Cooking Time:</label>
-    <input style="margin:0.2rem;" type="text" name="cook_time" id="cook_time">
+    <input style="margin:0.2rem;" type="text" name="cook_time" id="cook_time" value="<%= @recipe.cook_time %>">
     <input style="margin:0.2rem;" type="submit" value="submit">
 </form>
