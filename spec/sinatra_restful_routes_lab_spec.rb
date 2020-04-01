@@ -181,12 +181,8 @@ describe "Recipe App" do
     end
 
     it "deletes a recipe" do
-      expect {
-        click_button "delete"
-      }.to change(Recipe, :count).by -1
-
+      expect(Recipe.find_by_id(@cookie.id)).to eq(nil)
     end
-
   end
   
 end
