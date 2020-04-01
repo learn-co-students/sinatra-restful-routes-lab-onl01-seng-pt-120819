@@ -156,6 +156,7 @@ describe "Recipe App" do
     end
 
     it "updates the recipe" do
+      
       expect(page).to have_content("Double chocolate chip cookies")
       expect(page).to have_content("chocolate chips, flour, sugar, butter, cocoa powder")
       expect(page).to have_content("30 minutes")
@@ -177,11 +178,13 @@ describe "Recipe App" do
       )
       visit  "/recipes/#{@cookie.id}"
 
-      click_button "delete"
     end
 
     it "deletes a recipe" do
-      expect(Recipe.find_by_id(@cookie.id)).to eq(nil)
+      expect {
+        click_button "delete"
+      }.to change(Recipe, :count).by -1
+
     end
 
   end
