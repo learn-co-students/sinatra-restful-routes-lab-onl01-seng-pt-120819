@@ -177,7 +177,7 @@ describe "Recipe App" do
         cook_time:  "30 minutes", 
       )
       visit  "/recipes/#{@cookie.id}"
-
+      click_button "delete"
     end
 
     it "deletes a recipe" do
